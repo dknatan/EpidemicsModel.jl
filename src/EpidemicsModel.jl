@@ -1,5 +1,7 @@
 module EpidemicsModel
-    
+
+using DynamicalSystems
+
 function SIRV(u, p, t)
     S, I, R, V = u
     β, γ, v = p
