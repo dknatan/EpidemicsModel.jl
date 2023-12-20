@@ -7,6 +7,9 @@ function initiated_status()
     return nothing
 end
 
+"""@docs
+SIRV is the RHS of a continuous ODE and returns derivatives.
+"""
 function SIRV(u, p, t)
     S, I, R, V = u
     β, γ, v = p
@@ -19,6 +22,9 @@ function SIRV(u, p, t)
     return SVector{4}(dS, dI, dR, dV)
 end 
 
+"""@docs
+get_evolution_SIRV builds a dynamical systems object and solves it until time T
+"""
 function get_evolution_SIRV(u0, p; Δt=0.1, T=100.0)
     ds = ContinuousDynamicalSystem(SIRV, u0, p)
     traj, timearray = trajectory(ds, T; Δt)
@@ -26,6 +32,9 @@ function get_evolution_SIRV(u0, p; Δt=0.1, T=100.0)
     return (traj, timearray)
 end
 
+"""@docs
+plot_evolution_SIRV plots a SIRV dynamical system solution
+"""
 function plot_evolution_SIRV(u0, p, traj, timearray; Δt=0.1, T=100.0)
     fig = Figure(resolution = (1200, 600))
     ax = Axis(fig[1, 1], xlabel = "days", title = "Model at β = $(p[1]), γ = $(p[2]), v = $(p[3])")
