@@ -30,7 +30,6 @@ function plot_evolution_SIRV(u0, p, traj, timearray; Δt=0.1, T=100.0)
     end
     axislegend()
     fig
-    return nothing    
 end
 
 
