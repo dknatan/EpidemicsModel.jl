@@ -23,8 +23,13 @@ end
 
 function plot_evolution_SIRV(u0, p, traj, timearray; Δt=0.1, T=100.0)
     labels = ["Susceptible", "Infected", "Recovered", "Vaccinated"] #[traj[1,:] traj[2,:] traj[3,:] traj[4,:]]
-    plot(timearray, Matrix(traj), title= "Model at β = $(p[1]), γ = $(p[2]), v = $(p[3])", label=labels, linewidth=3)
-    return nothing
+    
+    plot(timearray, traj[:,1]
+        title= "Model at β = $(p[1]), γ = $(p[2]), v = $(p[3])",
+        label=labels, 
+        linewidth=3)
+
+    return nothing    
 end
 
 
