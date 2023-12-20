@@ -3,7 +3,7 @@ module EpidemicsModel
 using DynamicalSystems, CairoMakie
 
 function initiated_status()
-    print("properly imported EpidemicsModel")
+    print("properly imported EpidemicsModel YES")
     return nothing
 end
 
