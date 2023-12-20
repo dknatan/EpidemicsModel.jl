@@ -7,7 +7,7 @@ makedocs(;
     modules=[EpidemicsModel],
     authors="Natan Dominko Kobilica",
     repo="https://github.com/dknatan/EpidemicsModel.jl/blob/{commit}{path}#{line}",
-    sitename="EpidemicsModel.jl",
+    sitename="EpidemicsModel.jl Documentation",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
         edit_link="main",
@@ -19,5 +19,5 @@ makedocs(;
 )
 
 deploydocs(
-    repo = "github.com/dknatan/EpidemicsModel.jl"
+    repo = "github.com/dknatan/EpidemicsModel.jl.git"
 )
