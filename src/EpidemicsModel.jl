@@ -1,6 +1,6 @@
 module EpidemicsModel
 
-using DynamicalSystems, Plots
+using DynamicalSystems, CairoMakie
 
 function SIRV(u, p, t)
     S, I, R, V = u
@@ -22,16 +22,14 @@ function get_evolution_SIRV(u0, p; Δt=0.1, T=100.0)
 end
 
 function plot_evolution_SIRV(u0, p, traj, timearray; Δt=0.1, T=100.0)
-    labels = ["Susceptible", "Infected", "Recovered", "Vaccinated"] #[traj[1,:] traj[2,:] traj[3,:] traj[4,:]]
-    
-    x = range(0, 10, length=100)
-    y = sin.(x)
-    plot(x, y)
-    #    plot(timearray, traj[:,1])
-        # title= "Model at β = $(p[1]), γ = $(p[2]), v = $(p[3])",
-        # label=labels, 
-        # linewidth=3)
-
+    fig = Figure(resolution = (1200, 600))
+    ax = Axis(fig[1, 1], xlabel = "days", title = "Model at β = $(p[1]), γ = $(p[2]), v = $(p[3])")
+    labels=["S", "I", "R", "V"]
+    for i=1:4
+        lines!(ax, timearray, traj[:,i], linewidth = 3, label=labels[i])
+    end
+    axislegend()
+    fig
     return nothing    
 end
 
