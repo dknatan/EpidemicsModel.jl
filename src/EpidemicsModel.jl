@@ -1,6 +1,6 @@
 module EpidemicsModel
 
-using DynamicalSystems
+using DynamicalSystems, Plots
 
 function SIRV(u, p, t)
     S, I, R, V = u
@@ -22,10 +22,9 @@ function get_evolution_SIRV(u0, p; Δt=0.1, T=100.0)
 end
 
 function plot_evolution_SIRV(u0, p, traj, timearray; Δt=0.1, T=100.0)
-    using Plots
     labels = ["Susceptible", "Infected", "Recovered", "Vaccinated"] #[traj[1,:] traj[2,:] traj[3,:] traj[4,:]]
     plot(timearray, traj, title= "Model at β = $(p[1]), γ = $(p[2]), v = $(p[3])", label=labels, linewidth=3)
-
+    return nothing
 end
 
 
