@@ -6,8 +6,8 @@ function SIRV(u, p, t)
     S, I, R, V = u
     β, γ, v = p
 
-    dS = -β * I * S - v * S
-    dI = β * I * S - γ * I
+    dS = -β * I * S / (S + I + R + V) - v * S
+    dI = β * I * S / (S + I + R + V) - γ * I
     dR = γ * I 
     dV = v * S
 
