@@ -2,6 +2,11 @@ module EpidemicsModel
 
 using DynamicalSystems, CairoMakie
 
+function initiated_status()
+    print("properly imported EpidemicsModel")
+    return nothing
+end
+
 function SIRV(u, p, t)
     S, I, R, V = u
     β, γ, v = p
